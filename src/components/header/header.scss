@@ -68,8 +68,8 @@ $burger-item-font-size: 1.5rem;
     }
 
     &__nav-list {
-        @include flexbox(row, flex-start);
-        gap: calc(min(1.5vw, 1rem));
+        @include flexbox(row, flex-end);
+        gap: 5px;
         padding: 0 min(2rem, 2.5vw);
         width: 100%;
 
@@ -165,10 +165,6 @@ $burger-item-font-size: 1.5rem;
 
 @media (max-width: $breakpoint-md) {
     .header {
-        &__nav-list {
-            display: none;
-        }
-
         &__burger {
             max-width: 200px;
             padding: 0.33rem 0.5rem;

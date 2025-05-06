@@ -29,31 +29,14 @@ const ItemsList: React.FC = () => {
         const activeId = Number(active.id);
         const overId = Number(over.id);
       
-        const selectedIds = Array.from(selected);
+        // Найти индексы
+        const oldIndex = items.findIndex(item => item.id === activeId);
+        const newIndex = items.findIndex(item => item.id === overId);
       
-        const isGroupDrag = selected.has(activeId);
-        const draggedIds = isGroupDrag ? selectedIds : [activeId];
+        if (oldIndex === -1 || newIndex === -1) return;
       
-        const indicesToRemove = items.reduce<number[]>((acc, item, index) => {
-          if (draggedIds.includes(item.id)) acc.push(index);
-          return acc;
-        }, []);
-      
-        const insertionIndex = items.findIndex((item) => item.id === overId);
-      
-        const itemsWithoutDragged = items.filter((item) => !draggedIds.includes(item.id));
-      
-        const adjustedIndex = insertionIndex - indicesToRemove.filter(i => i < insertionIndex).length;
-      
-        const draggedItems = items.filter((item) => draggedIds.includes(item.id));
-      
-        const newItems = [
-          ...itemsWithoutDragged.slice(0, adjustedIndex),
-          ...draggedItems,
-          ...itemsWithoutDragged.slice(adjustedIndex),
-        ];
-      
-        handleReorder(newItems, draggedIds, overId);
+        const newItems = arrayMove(items, oldIndex, newIndex);
+        handleReorder(newItems, [activeId], overId);
       };
       
 

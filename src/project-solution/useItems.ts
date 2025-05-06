@@ -13,7 +13,9 @@ export function useItems(search: string) {
   const loadItems = useCallback(async () => {
     if (loadingRef.current || !hasMore) return;
     loadingRef.current = true;
+
     const res = await fetchItems(offset, LIMIT, search);
+    
     setItems((prev) => {
       const existing = new Set(prev.map((i) => i.id));
       const unique = res.items.filter((item) => !existing.has(item.id));
