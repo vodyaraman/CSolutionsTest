@@ -1,0 +1,66 @@
+@use 'sass:color';
+
+:root {
+    --section-padding: 0 10vw;
+}
+
+// Цвета
+$color-bg: #eff1ea;
+$color-text: #1a1a1a;
+$color-accent: #000000;
+$color-accent-gradient: color.adjust($color-accent, $lightness: 5%);
+$color-accent-hover: color.adjust($color-accent, $lightness: 10%);
+$color-accent-text: #fafafa;
+$color-border: #202020;
+$color-muted: #AEAEAE;
+$color-error: #f13737;
+$input-color-bg-dimmed: #cfc4be10;
+
+// Размеры
+$container-max-width: 1250px;
+$border-radius: 12px;
+$component-padding: 0.75rem 1.5rem;
+
+// Депрецированные
+$section-padding: 0 10vw;
+$gutter: 24px;
+
+// Брейкпоинты
+$breakpoint-xl: 1920px;
+$breakpoint-lg: 1420px;
+$breakpoint-md: 700px;
+$breakpoint-sm: 480px;
+
+$breakpoint-lg-up: calc($breakpoint-lg + 1px);
+$breakpoint-md-up: calc($breakpoint-md + 1px);
+$breakpoint-sm-up: calc($breakpoint-sm + 1px);
+
+
+// Типографика
+$font-base: 'Helvetica', sans-serif;
+$font-tenor: 'Tenor Sans', serif;
+
+$font-size-base: 13px;
+$font-size-lg: 14px;
+$font-size-sm: 11px;
+$line-height-base: 1.5;
+
+$font-heading: $font-tenor;
+
+// z-index
+$z-header: 1000;
+$z-modal: 2000;
+$z-loader: 3000;
+
+// Тени
+$shadow-low: 0 4px 12px rgba(0, 0, 0, 0.05);
+$shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+// Анимации
+$transition-fast: 0.3s ease-in-out;
+$transition-slow: 0.4s ease-in-out;
+
+// Радиусы
+$radius-s: 4px;
+$radius-m: 8px;
+$radius-l: 16px;

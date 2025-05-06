@@ -1,0 +1,47 @@
+// Гибкий контейнер
+@mixin flexbox($direction: row, $justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+// Контейнер, растягивающийся на весь блок
+@mixin cover {
+    position: absolute;
+    inset: 0;
+}
+
+// Отзывчивый текст (примерно от 14px до 20px)
+@mixin fluid-text($min: 14px, $max: 20px) {
+    font-size: clamp(#{$min}, 1.2vw, #{$max});
+}
+
+@mixin media-xl {
+    @media (max-width: #{$breakpoint-xl}) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media (max-width: #{$breakpoint-lg}) {
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media (max-width: #{$breakpoint-md}) {
+        @content;
+    }
+}
+
+@mixin media-sm {
+    @media (max-width: #{$breakpoint-sm}) {
+        @content;
+    }
+}
+
+// Быстрый переход
+@mixin transition($props: all, $duration: 0.3s, $ease: ease-in-out) {
+    transition: $props $duration $ease;
+}

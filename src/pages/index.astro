@@ -1,0 +1,88 @@
+---
+// Основа страницы
+import BasePageLayout from '@/layouts/BasePageLayout.astro';
+import Header from '@/components/header/Header.astro';
+
+// Компоненты страницы
+import { LinkButton, MainButton } from '@/components/buttons';
+import { FormExamplePage } from '@/components/form';
+import FormInput from '@/components/inputs/FormInput';
+
+// Контент страница
+import Card from '@/components/cards/Card';
+import Skeleton from '@/components/skeleton/Skeleton';
+---
+
+<BasePageLayout title="Главная" description="Главная страница сайта" keywords="Ключевые слова">
+	<Header />
+	<section class="hero section">
+		<h1>Лорем Ipsum</h1>
+		<h2>Лорем Ipsum</h2>
+		<h3>Лорем Ipsum</h3>
+		<p>
+			Lorem текст ipsum пример dolor примерный sit заголовок, consectetur контент adipiscing абзац
+			elit оформление. Sed страница do проект eiusmod дизайн tempor внимание incididunt файл ut блок
+			labore данные et сетка dolore тень magna фон aliqua шрифт. Ut разметка enim структура ad сайт
+			minim макет veniam интерфейс, quis модуль nostrud анимация exercitation кнопка ullamco меню
+			laboris форма nisi глобально ut стили aliquip цвет ex раздел ea контейнер commodo медиа
+			consequat иконка.
+		</p>
+
+		<FormInput
+			id="adress"
+			type="adress"
+			onChange={() => console.log('Изменился')}
+			label="Adress"
+			client:load
+		/>
+
+		<LinkButton s text="Перейти" href="/second" client:load />
+		<LinkButton m loader text="Перейти" href="/second" className='outlined' client:load/>
+		<LinkButton m text="Корзина" icon="cart" href='/' client:load />
+		<MainButton text="Отключена" disabled={true} loading={false} client:load />
+		<MainButton text="Нажать" loading={true} client:load />
+		<LinkButton className="outlined" href="/" icon="instagram" text='Инстаграм' client:load />
+		<LinkButton href="/second" icon="telegram" client:load />
+		<LinkButton href="/second" icon="youtube" client:load />
+		<MainButton m text="Детина" client:load />
+
+		<FormExamplePage client:load />
+
+		<Card
+			title="Кожаный рюкзак"
+			description="Ручная работа из натуральной кожи."
+			price="7 900 ₽"
+			onAction={() => console.log('Добавить в корзину')}
+			actionText="Добавить"
+		/>
+		<Card
+			title="Кожаный штурвал"
+			description="Ручная работа из натуральной кожи."
+			price="12 900 ₽"
+			onAction={() => console.log('Добавить в корзину')}
+			actionText="Использовать"
+		/>
+		<Card
+			title="Мармеладный мишка"
+			description="Ручная работа из натурального человеческого жира."
+			price="900 ₽"
+			onAction={() => console.log('Добавить в корзину')}
+			actionText="Покушать"
+		/>
+		<Card
+			title="Сосновая шишка"
+			description="Работа природы из натуральной древесины."
+			price="9000 ₽"
+			onAction={() => console.log('Добавить в корзину')}
+			actionText="Покушать"
+		/>
+
+		<Skeleton />
+		<Skeleton>
+			<Skeleton type="title" />
+			<Skeleton type="text" />
+			<Skeleton type="text" />
+			<Skeleton type="text" />
+		</Skeleton>
+	</section>
+</BasePageLayout>
