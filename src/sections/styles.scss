@@ -1,0 +1,66 @@
+.list-section {
+    @include flexbox(column);
+    width: 100%;
+    gap: 1rem;
+    padding-top: 5vh;
+
+    .list {
+        @include flexbox(column);
+        gap: 0.5rem;
+        width: 100%;
+
+        &__item {
+            width: 100%;
+            @include flexbox(row, space-between);
+            gap: 1rem;
+            padding: $component-padding;
+            border-radius: $border-radius;
+            box-shadow: $shadow-medium;
+            font-size: 1.25rem;
+            font-weight: 600;
+
+            &--selected {
+                background-color: #dceeff;
+                outline: 2px solid #3399ff;
+
+                .list__item-checkbox {
+                    background-color: #4caf50;
+                }
+            }
+
+            &-title {
+                width: 100%;
+                text-align: left;
+            }
+
+            &-checkbox {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                border: 2px solid #4caf50;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: white;
+                transition: background-color 0.2s ease;
+
+                z-index: 2;
+            }
+
+            &-checkmark {
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 1;
+            }
+
+            &-drag {
+                position: relative;
+                cursor: grab;
+                padding: 0 0.5rem;
+                user-select: none;
+            }
+        }
+    }
+}
